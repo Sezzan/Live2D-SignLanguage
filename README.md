@@ -1,0 +1,1 @@
+Unity專案，使用Live2D模型進行手語動作教學，並使用MediaPipe進行手語詞彙辨識
