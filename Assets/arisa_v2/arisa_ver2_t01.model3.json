@@ -1,0 +1,24 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "arisa_ver2_t01.moc3",
+		"Textures": [
+			"arisa_ver2_t01.4096/texture_00.png",
+			"arisa_ver2_t01.4096/texture_01.png"
+		],
+		"Physics": "arisa_ver2_t01.physics3.json",
+		"DisplayInfo": "arisa_ver2_t01.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}

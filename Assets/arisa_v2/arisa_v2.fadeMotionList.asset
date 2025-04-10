@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403ae2dd693bb1d4b924f6b8d206b053, type: 3}
+  m_Name: arisa_v2.fadeMotionList
+  m_EditorClassIdentifier: 
+  MotionInstanceIds: 2ae0fffff4dfffffccdfffffa4dfffff7cdfffff
+  CubismFadeMotionObjects:
+  - {fileID: 11400000, guid: 33e84185c7f62c040a8afb9ce6e24af4, type: 2}
+  - {fileID: 11400000, guid: 76b8609fe23a96a4bab713e5d2387cbf, type: 2}
+  - {fileID: 11400000, guid: 76db820bd5b822b4aafab028ec3f4def, type: 2}
+  - {fileID: 11400000, guid: a1aa0b9f229fbf74fa10010d132515af, type: 2}
+  - {fileID: 11400000, guid: 5662077e82113ed40918f30dc5ef9e4e, type: 2}

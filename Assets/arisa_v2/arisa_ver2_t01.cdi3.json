@@ -1,0 +1,902 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "ParamGroup9",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "ParamGroup9",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "ParamGroup9",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "ParamGroup",
+			"Name": "左眉　上下"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "ParamGroup",
+			"Name": "右眉　上下"
+		},
+		{
+			"Id": "ParamBrowLX",
+			"GroupId": "ParamGroup",
+			"Name": "左眉　左右"
+		},
+		{
+			"Id": "ParamBrowRX",
+			"GroupId": "ParamGroup",
+			"Name": "右眉　左右"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "ParamGroup",
+			"Name": "左眉　角度"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "ParamGroup",
+			"Name": "右眉　角度"
+		},
+		{
+			"Id": "ParamBrowRForm",
+			"GroupId": "ParamGroup",
+			"Name": "右眉　変形"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "ParamGroup",
+			"Name": "左眉　変形"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "ParamGroup7",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "ParamGroup7",
+			"Name": "左目　笑顔"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "ParamGroup7",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "ParamGroup7",
+			"Name": "右目　笑顔"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "ParamGroup7",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "ParamGroup7",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "ParamGroup10",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "ParamGroup10",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamCheek",
+			"GroupId": "ParamGroup10",
+			"Name": "照れ"
+		},
+		{
+			"Id": "HandLeftFound",
+			"GroupId": "ParamGroup8",
+			"Name": "左腕の検知"
+		},
+		{
+			"Id": "HandLeftPositionX",
+			"GroupId": "ParamGroup8",
+			"Name": "左手の位置　X"
+		},
+		{
+			"Id": "HandLeftPositionY",
+			"GroupId": "ParamGroup8",
+			"Name": "左手の位置　Y"
+		},
+		{
+			"Id": "HandLeftPositionZ",
+			"GroupId": "ParamGroup8",
+			"Name": "左手の位置　Z"
+		},
+		{
+			"Id": "HandLeftAngleX",
+			"GroupId": "ParamGroup8",
+			"Name": "左手首の回転"
+		},
+		{
+			"Id": "HandLeftAngleZ",
+			"GroupId": "ParamGroup8",
+			"Name": "左手首の向き"
+		},
+		{
+			"Id": "ParamArmAL01",
+			"GroupId": "ParamGroup8",
+			"Name": "左腕 肩の回転"
+		},
+		{
+			"Id": "ParamArmAL02",
+			"GroupId": "ParamGroup8",
+			"Name": "左腕 肘の回転"
+		},
+		{
+			"Id": "ParamArmAL03",
+			"GroupId": "ParamGroup8",
+			"Name": "左腕 手首の回転"
+		},
+		{
+			"Id": "ParamArmALHandRoll1",
+			"GroupId": "ParamGroup8",
+			"Name": "左手A"
+		},
+		{
+			"Id": "ParamArmSwitchL",
+			"GroupId": "ParamGroup8",
+			"Name": "左前腕切り替え"
+		},
+		{
+			"Id": "HandLeftFinger_1_Thumb",
+			"GroupId": "ParamGroup8",
+			"Name": "左親指の開閉"
+		},
+		{
+			"Id": "HandLeftFinger_2_Index",
+			"GroupId": "ParamGroup8",
+			"Name": "左人差し指の開閉"
+		},
+		{
+			"Id": "HandLeftFinger_3_Middle",
+			"GroupId": "ParamGroup8",
+			"Name": "左中指の開閉"
+		},
+		{
+			"Id": "HandLeftFinger_4_Ring",
+			"GroupId": "ParamGroup8",
+			"Name": "左薬指の開閉"
+		},
+		{
+			"Id": "HandLeftFinger_5_Pinky",
+			"GroupId": "ParamGroup8",
+			"Name": "左小指の開閉"
+		},
+		{
+			"Id": "ARM_L_tokei",
+			"GroupId": "ParamGroup8",
+			"Name": "★時計のON/OFF"
+		},
+		{
+			"Id": "HandRightFound",
+			"GroupId": "ParamGroup2",
+			"Name": "右腕の検知"
+		},
+		{
+			"Id": "HandRightPositionX",
+			"GroupId": "ParamGroup2",
+			"Name": "右手の位置　X"
+		},
+		{
+			"Id": "HandRightPositionY",
+			"GroupId": "ParamGroup2",
+			"Name": "右手の位置　Y"
+		},
+		{
+			"Id": "HandRightPositionZ",
+			"GroupId": "ParamGroup2",
+			"Name": "右手の位置　Z"
+		},
+		{
+			"Id": "HandRightAngleX",
+			"GroupId": "ParamGroup2",
+			"Name": "右手首の回転"
+		},
+		{
+			"Id": "HandRightAngleZ",
+			"GroupId": "ParamGroup2",
+			"Name": "右手首の向き"
+		},
+		{
+			"Id": "ParamArmAR01",
+			"GroupId": "ParamGroup2",
+			"Name": "右腕 肩の回転"
+		},
+		{
+			"Id": "ParamArmAR02",
+			"GroupId": "ParamGroup2",
+			"Name": "右腕 肘の回転"
+		},
+		{
+			"Id": "ParamArmAR03",
+			"GroupId": "ParamGroup2",
+			"Name": "右腕 手首の回転"
+		},
+		{
+			"Id": "ParamArmARHandRoll1",
+			"GroupId": "ParamGroup2",
+			"Name": "右手A"
+		},
+		{
+			"Id": "ParamArmSwitchR",
+			"GroupId": "ParamGroup2",
+			"Name": "右前腕切り替え"
+		},
+		{
+			"Id": "HandRightFinger_1_Thumb",
+			"GroupId": "ParamGroup2",
+			"Name": "右親指の開閉"
+		},
+		{
+			"Id": "HandRightFinger_2_Index",
+			"GroupId": "ParamGroup2",
+			"Name": "右人差し指の開閉"
+		},
+		{
+			"Id": "HandRightFinger_3_Middle",
+			"GroupId": "ParamGroup2",
+			"Name": "右中指の開閉"
+		},
+		{
+			"Id": "HandRightFinger_4_Ring",
+			"GroupId": "ParamGroup2",
+			"Name": "右薬指の開閉"
+		},
+		{
+			"Id": "HandRightFinger_5_Pinky",
+			"GroupId": "ParamGroup2",
+			"Name": "右小指の開閉"
+		},
+		{
+			"Id": "ARM_R_syusyu",
+			"GroupId": "ParamGroup2",
+			"Name": "★シュシュのON/OFF"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "ParamGroup11",
+			"Name": "体の回転　X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "ParamGroup11",
+			"Name": "体の回転　Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "ParamGroup11",
+			"Name": "体の回転　Z"
+		},
+		{
+			"Id": "ParamBodyAngleZ2",
+			"GroupId": "ParamGroup11",
+			"Name": "コアの回転　Z"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "ParamGroup11",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "BodyPositionX",
+			"GroupId": "ParamGroup3",
+			"Name": "全身の位置X"
+		},
+		{
+			"Id": "BodyPositionY",
+			"GroupId": "ParamGroup3",
+			"Name": "全身の位置Y"
+		},
+		{
+			"Id": "UpperLegLeftAngleY",
+			"GroupId": "ParamGroup3",
+			"Name": "左太もも角度Y"
+		},
+		{
+			"Id": "UpperLegLeftAngleZ",
+			"GroupId": "ParamGroup3",
+			"Name": "左太もも角度Z"
+		},
+		{
+			"Id": "LowerLegLeftAngleY",
+			"GroupId": "ParamGroup3",
+			"Name": "左すね角度Y"
+		},
+		{
+			"Id": "LowerLegLeftAngleZ",
+			"GroupId": "ParamGroup3",
+			"Name": "左すね角度Z"
+		},
+		{
+			"Id": "UpperLegRIghtAngleY",
+			"GroupId": "ParamGroup3",
+			"Name": "右太もも角度Y"
+		},
+		{
+			"Id": "UpperLegRightAngleZ",
+			"GroupId": "ParamGroup3",
+			"Name": "右太もも角度Z"
+		},
+		{
+			"Id": "LowerLegRIghtAngleY",
+			"GroupId": "ParamGroup3",
+			"Name": "右すね角度Y"
+		},
+		{
+			"Id": "LowerLegRightAngleZ",
+			"GroupId": "ParamGroup3",
+			"Name": "右すね角度Z"
+		},
+		{
+			"Id": "Param_LEG_Y",
+			"GroupId": "ParamGroup3",
+			"Name": "全身Y"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　前"
+		},
+		{
+			"Id": "ParamHairFront3",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　前ふわ"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　横"
+		},
+		{
+			"Id": "ParamHairSide2",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　横2"
+		},
+		{
+			"Id": "ParamHairSide3",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　横ふわ"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　後"
+		},
+		{
+			"Id": "ParamHairBack2",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　後2"
+		},
+		{
+			"Id": "ParamHairBack3",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　後ふわ"
+		},
+		{
+			"Id": "ParamHairAhoge",
+			"GroupId": "ParamGroup6",
+			"Name": "髪揺れ　アホ毛"
+		},
+		{
+			"Id": "ParamHiSwing",
+			"GroupId": "ParamGroup6",
+			"Name": "目のハイライト　揺れ"
+		},
+		{
+			"Id": "ParamRibbon1",
+			"GroupId": "ParamGroup6",
+			"Name": "胸リボンの揺れ上"
+		},
+		{
+			"Id": "ParamRibbon2",
+			"GroupId": "ParamGroup6",
+			"Name": "胸リボンの揺れ下"
+		},
+		{
+			"Id": "ParamBustY",
+			"GroupId": "ParamGroup6",
+			"Name": "胸　揺れ"
+		},
+		{
+			"Id": "ParamKeychain",
+			"GroupId": "ParamGroup6",
+			"Name": "うさぎの揺れ1"
+		},
+		{
+			"Id": "ParamKeychain2",
+			"GroupId": "ParamGroup6",
+			"Name": "うさぎの揺れ2"
+		},
+		{
+			"Id": "ParamSkirt",
+			"GroupId": "ParamGroup6",
+			"Name": "スカートの揺れ"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup9",
+			"GroupId": "",
+			"Name": "顔"
+		},
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "眉毛"
+		},
+		{
+			"Id": "ParamGroup7",
+			"GroupId": "",
+			"Name": "目"
+		},
+		{
+			"Id": "ParamGroup10",
+			"GroupId": "",
+			"Name": "表情"
+		},
+		{
+			"Id": "ParamGroup8",
+			"GroupId": "",
+			"Name": "左腕"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "右腕"
+		},
+		{
+			"Id": "ParamGroup11",
+			"GroupId": "",
+			"Name": "体"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "脚"
+		},
+		{
+			"Id": "ParamGroup6",
+			"GroupId": "",
+			"Name": "揺れ"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part39",
+			"Name": "左腕_ハンドトラッキング用"
+		},
+		{
+			"Id": "Part37",
+			"Name": "右腕_ハンドトラッキング用"
+		},
+		{
+			"Id": "Part35",
+			"Name": "コア"
+		},
+		{
+			"Id": "Part",
+			"Name": "*横髪"
+		},
+		{
+			"Id": "Part3",
+			"Name": "*眉毛"
+		},
+		{
+			"Id": "Part4",
+			"Name": "髪（前）"
+		},
+		{
+			"Id": "Part5",
+			"Name": "*目"
+		},
+		{
+			"Id": "Part12",
+			"Name": "*鼻"
+		},
+		{
+			"Id": "Part13",
+			"Name": "*口"
+		},
+		{
+			"Id": "Part14",
+			"Name": "*頬紅"
+		},
+		{
+			"Id": "Part15",
+			"Name": "*顔"
+		},
+		{
+			"Id": "Part20",
+			"Name": "*キーホルダー"
+		},
+		{
+			"Id": "Part24",
+			"Name": "*上半身"
+		},
+		{
+			"Id": "Part28",
+			"Name": "腕A"
+		},
+		{
+			"Id": "Part17",
+			"Name": "*腕B"
+		},
+		{
+			"Id": "Part27",
+			"Name": "*スカート"
+		},
+		{
+			"Id": "Part46",
+			"Name": "足トラッキング用"
+		},
+		{
+			"Id": "Part31",
+			"Name": "*足"
+		},
+		{
+			"Id": "Part32",
+			"Name": "*後ろ髪"
+		},
+		{
+			"Id": "Part41",
+			"Name": "左袖"
+		},
+		{
+			"Id": "Part42",
+			"Name": "左手"
+		},
+		{
+			"Id": "PartForearmL",
+			"Name": "左前腕"
+		},
+		{
+			"Id": "Part40",
+			"Name": "右袖"
+		},
+		{
+			"Id": "PartHandL01",
+			"Name": "右手"
+		},
+		{
+			"Id": "PartForearmL2",
+			"Name": "右前腕"
+		},
+		{
+			"Id": "Part2",
+			"Name": "*星ヘアピン"
+		},
+		{
+			"Id": "Part6",
+			"Name": "*左まつげ"
+		},
+		{
+			"Id": "Part7",
+			"Name": "*左瞳"
+		},
+		{
+			"Id": "Part8",
+			"Name": "*左白目"
+		},
+		{
+			"Id": "Part9",
+			"Name": "*右まつげ"
+		},
+		{
+			"Id": "Part10",
+			"Name": "*右瞳"
+		},
+		{
+			"Id": "Part11",
+			"Name": "*右白目"
+		},
+		{
+			"Id": "Part16",
+			"Name": "*耳"
+		},
+		{
+			"Id": "Part21",
+			"Name": "*うさぎ"
+		},
+		{
+			"Id": "Part22",
+			"Name": "*トマト"
+		},
+		{
+			"Id": "Part23",
+			"Name": "*ナス"
+		},
+		{
+			"Id": "Part25",
+			"Name": "*胸リボン"
+		},
+		{
+			"Id": "Part26",
+			"Name": "*首"
+		},
+		{
+			"Id": "Part30",
+			"Name": "*左腕A"
+		},
+		{
+			"Id": "Part29",
+			"Name": "*右腕A"
+		},
+		{
+			"Id": "Part18",
+			"Name": "*左腕B"
+		},
+		{
+			"Id": "Part19",
+			"Name": "*右腕B"
+		},
+		{
+			"Id": "Part48",
+			"Name": "右脚"
+		},
+		{
+			"Id": "Part49",
+			"Name": "左脚"
+		},
+		{
+			"Id": "Part45",
+			"Name": "左カフス（降し手）"
+		},
+		{
+			"Id": "Part47",
+			"Name": "左手_デフォルト"
+		},
+		{
+			"Id": "PartHandbackL01",
+			"Name": "左手_裏"
+		},
+		{
+			"Id": "PartHandFrontL01",
+			"Name": "左手_表"
+		},
+		{
+			"Id": "Part38",
+			"Name": "右カフス（降し手）"
+		},
+		{
+			"Id": "Part44",
+			"Name": "右手_デフォルト"
+		},
+		{
+			"Id": "PartHandbackL02",
+			"Name": "右手_裏"
+		},
+		{
+			"Id": "PartHandFrontL02",
+			"Name": "右手_表"
+		},
+		{
+			"Id": "Part33",
+			"Name": "左前腕"
+		},
+		{
+			"Id": "Part34",
+			"Name": "右前腕"
+		},
+		{
+			"Id": "Part50",
+			"Name": "右膝上"
+		},
+		{
+			"Id": "Part52",
+			"Name": "右膝下"
+		},
+		{
+			"Id": "Part51",
+			"Name": "左膝上"
+		},
+		{
+			"Id": "Part54",
+			"Name": "左膝下"
+		},
+		{
+			"Id": "PartBackofhandL01",
+			"Name": "手の甲01"
+		},
+		{
+			"Id": "PartFingerbackL05",
+			"Name": "左手_裏_小指"
+		},
+		{
+			"Id": "PartFingerbackL04",
+			"Name": "左手_裏_薬指"
+		},
+		{
+			"Id": "PartFingerbackL03",
+			"Name": "左手_裏_中指"
+		},
+		{
+			"Id": "PartFingerbackL02",
+			"Name": "左手_裏_人差し指"
+		},
+		{
+			"Id": "PartPalmL",
+			"Name": "左手_裏_手のひら"
+		},
+		{
+			"Id": "PartFingerback1L01",
+			"Name": "左手_裏_親指"
+		},
+		{
+			"Id": "PartFingerback2L01",
+			"Name": "左手_裏_親指_指先"
+		},
+		{
+			"Id": "PartFingerfront2L05",
+			"Name": "左手_表_小指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L05",
+			"Name": "左手_表_小指"
+		},
+		{
+			"Id": "PartFingerfront2L04",
+			"Name": "左手_表_薬指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L04",
+			"Name": "左手_表_薬指"
+		},
+		{
+			"Id": "PartFingerfront2L03",
+			"Name": "左手_表_中指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L03",
+			"Name": "左手_表_中指"
+		},
+		{
+			"Id": "PartFingerfront2L01",
+			"Name": "左手_表_親指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L01",
+			"Name": "左手_表_親指"
+		},
+		{
+			"Id": "PartFingerfront2L02",
+			"Name": "左手_表_人差し指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L02",
+			"Name": "左手_表_人差し指"
+		},
+		{
+			"Id": "PartBackofhandL",
+			"Name": "手の甲"
+		},
+		{
+			"Id": "PartBackofhandL02",
+			"Name": "手の甲01"
+		},
+		{
+			"Id": "PartFingerbackL06",
+			"Name": "右手_裏_小指"
+		},
+		{
+			"Id": "PartFingerbackL07",
+			"Name": "右手_裏_薬指"
+		},
+		{
+			"Id": "PartFingerbackL08",
+			"Name": "右手_裏_中指"
+		},
+		{
+			"Id": "PartFingerbackL09",
+			"Name": "右手_裏_人差し指"
+		},
+		{
+			"Id": "PartPalmL2",
+			"Name": "右手_裏_手のひら"
+		},
+		{
+			"Id": "PartFingerback1L02",
+			"Name": "右手_裏_親指"
+		},
+		{
+			"Id": "PartFingerback2L02",
+			"Name": "右手_裏_親指_指先"
+		},
+		{
+			"Id": "PartFingerfront2L06",
+			"Name": "右手_表_小指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L06",
+			"Name": "右手_表_小指"
+		},
+		{
+			"Id": "PartFingerfront2L07",
+			"Name": "右手_表_薬指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L07",
+			"Name": "右手_表_薬指"
+		},
+		{
+			"Id": "PartFingerfront2L08",
+			"Name": "右手_表_中指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L08",
+			"Name": "右手_表_中指"
+		},
+		{
+			"Id": "PartFingerfront2L09",
+			"Name": "右手_表_親指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L09",
+			"Name": "右手_表_親指"
+		},
+		{
+			"Id": "PartFingerfront2L10",
+			"Name": "右手_表_人差し指_指先"
+		},
+		{
+			"Id": "PartFingerfront1L10",
+			"Name": "右手_表_人差し指"
+		},
+		{
+			"Id": "PartBackofhandL2",
+			"Name": "手の甲"
+		},
+		{
+			"Id": "Part53",
+			"Name": "線消し"
+		},
+		{
+			"Id": "Part36",
+			"Name": "線消し"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"ParamAngleX",
+			"ParamAngleY"
+		],
+		[
+			"ParamEyeBallX",
+			"ParamEyeBallY"
+		],
+		[
+			"BodyPositionX",
+			"BodyPositionY"
+		],
+		[
+			"ParamHairSide",
+			"ParamHairSide2"
+		],
+		[
+			"ParamHairBack",
+			"ParamHairBack2"
+		],
+		[
+			"ParamKeychain",
+			"ParamKeychain2"
+		]
+	]
+}
