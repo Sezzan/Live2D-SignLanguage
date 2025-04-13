@@ -6,10 +6,87 @@ import numpy as np
 import time
 import sys
 import json
+import sqlite3
+import os
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
+
+# 建立資料庫並初始化表格
+def init_database():
+    conn = sqlite3.connect('sign_language.db')
+    cursor = conn.cursor()
+
+    # 建立 SignGestures 表格
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS SignGestures (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            sign_name TEXT NOT NULL,
+            f1_min REAL NOT NULL,
+            f1_max REAL NOT NULL,
+            f2_min REAL NOT NULL,
+            f2_max REAL NOT NULL,
+            f3_min REAL NOT NULL,
+            f3_max REAL NOT NULL,
+            f4_min REAL NOT NULL,
+            f4_max REAL NOT NULL,
+            f5_min REAL NOT NULL,
+            f5_max REAL NOT NULL,
+            fo1_min REAL NOT NULL,
+            fo1_max REAL NOT NULL,
+            fo2_min REAL NOT NULL,
+            fo2_max REAL NOT NULL,
+            fo3_min REAL NOT NULL,
+            fo3_max REAL NOT NULL,
+            fo4_min REAL NOT NULL,
+            fo4_max REAL NOT NULL,
+            fo5_min REAL NOT NULL,
+            fo5_max REAL NOT NULL,
+            is_double_hand INTEGER NOT NULL
+        )
+    ''')
+
+    # 檢查是否已有資料，若無則插入簡化資料（我、讀書、懶惰、刷牙）
+    cursor.execute("SELECT COUNT(*) FROM SignGestures")
+    if cursor.fetchone()[0] == 0:
+        initial_signs = [
+            ('我', 50, 180, 0, 50, 50, 180, 50, 180, 50, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            ('讀書', 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 1),
+            ('懶惰', 0, 50, 0, 50, 0, 50, 50, 180, 50, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            ('刷牙', 0, 50, 0, 50, 50, 180, 50, 180, 50, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+        ]
+        cursor.executemany('''
+            INSERT INTO SignGestures (sign_name, f1_min, f1_max, f2_min, f2_max, f3_min, f3_max, f4_min, f4_max, f5_min, f5_max, fo1_min, fo1_max, fo2_min, fo2_max, fo3_min, fo3_max, fo4_min, fo4_max, fo5_min, fo5_max, is_double_hand)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', initial_signs)
+
+    conn.commit()
+    return conn
+
+# 從資料庫讀取詞彙和角度條件
+def load_signs_from_db(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM SignGestures")
+    signs = []
+    for row in cursor.fetchall():
+        sign = {
+            'id': row[0],
+            'sign_name': row[1],
+            'f1_min': row[2], 'f1_max': row[3],
+            'f2_min': row[4], 'f2_max': row[5],
+            'f3_min': row[6], 'f3_max': row[7],
+            'f4_min': row[8], 'f4_max': row[9],
+            'f5_min': row[10], 'f5_max': row[11],
+            'fo1_min': row[12], 'fo1_max': row[13],
+            'fo2_min': row[14], 'fo2_max': row[15],
+            'fo3_min': row[16], 'fo3_max': row[17],
+            'fo4_min': row[18], 'fo4_max': row[19],
+            'fo5_min': row[20], 'fo5_max': row[21],
+            'is_double_hand': row[22]
+        }
+        signs.append(sign)
+    return signs
 
 # 根據兩點的座標，計算角度
 def vector_2d_angle(v1, v2):
@@ -53,83 +130,46 @@ def hand_angle(hand_):
     angle_list.append(angle_)
     return angle_list
 
-# 根據手指角度的串列內容，返回對應的手語單詞
-def hand_pos(finger_angle, finger_angle_other=None):
+# 根據手指角度和資料庫條件，返回對應的手語單詞
+def hand_pos(signs_db, finger_angle, finger_angle_other=None):
     f1 = finger_angle[0]
     f2 = finger_angle[1]
     f3 = finger_angle[2]
     f4 = finger_angle[3]
     f5 = finger_angle[4]
 
+    fo1 = fo2 = fo3 = fo4 = fo5 = 0
     if finger_angle_other:
         fo1 = finger_angle_other[0]
         fo2 = finger_angle_other[1]
         fo3 = finger_angle_other[2]
         fo4 = finger_angle_other[3]
         fo5 = finger_angle_other[4]
-        if f1<50 and f2<50 and f3<50 and f4<50 and f5<50 and fo1<50 and fo2<50 and fo3<50 and fo4<50 and fo5<50:
-            return '讀書'
-        elif f1>50 and f2<50 and f3<50 and f4<50 and f5<50 and fo1>50 and fo2<50 and fo3<50 and fo4<50 and fo5<50:
-            return '門'
-        elif f1<50 and f2>50 and f3>50 and f4>50 and f5>50 and fo1>50 and fo2<50 and fo3>50 and fo4>50 and fo5>50:
-            return '血'
-        elif f1>50 and f2<50 and f3<50 and f4<50 and f5>50 and fo1>50 and fo2<50 and fo3>50 and fo4>50 and fo5>50:
-            return '當'
-        elif f1>50 and f2<50 and f3>50 and f4>50 and f5>50 and fo1<50 and fo2<50 and fo3<50 and fo4<50 and fo5<50:
-            return '表演'
-        elif f1<50 and f2>50 and f3>50 and f4>50 and f5<50 and fo1<50 and fo2>50 and fo3>50 and fo4>50 and fo5<50:
-            return '牛'
-        elif f1<50 and f2<50 and f3>50 and f4>50 and f5>50 and fo1<50 and fo2<50 and fo3>50 and fo4>50 and fo5>50:
-            return '心'
-        elif f1>50 and f2<50 and f3<50 and f4>50 and f5>50 and fo1>50 and fo2<50 and fo3<50 and fo4>50 and fo5>50:
-            return '相信'
-        elif f1<50 and f2<50 and f3<50 and f4>50 and f5>50 and fo1<50 and fo2<50 and fo3<50 and fo4>50 and fo5<50:
-            return '坦白'
-        elif f1<50 and f2>50 and f3>50 and f4>50 and f5>50 and fo1<50 and fo2<50 and fo3<50 and fo4<50 and fo5<50:
-            return '有名'
-        elif f1>50 and f2<50 and f3>50 and f4>50 and f5>50 and fo1>50 and fo2<50 and fo3<50 and fo4>50 and fo5>50:
-            return '小'
-        elif f1>=50 and f2>=50 and f3<50 and f4<50 and f5<50 and fo1>=50 and fo2>=50 and fo3<50 and fo4<50 and fo5<50:
-            return '銀行'
-        elif f1<50 and f2>=50 and f3<50 and f4<50 and f5<50 and fo1<50 and fo2>=50 and fo3<50 and fo4<50 and fo5<50:
-            return '銀行'
 
-    if f1<50 and f2>=50 and f3>=50 and f4>=50 and f5>=50:
-        return '男'
-    elif f1>=50 and f2>=50 and f3<50 and f4>=50 and f5>=50:
-        return '高'
-    elif f1<50 and f2<50 and f3>=50 and f4>=50 and f5<50:
-        return '等'
-    elif f1>=50 and f2>=50 and f3>=50 and f4>=50 and f5>=50:
-        return '在'
-    elif f1>=50 and f2>=50 and f3>=50 and f4>=50 and f5<50:
-        return '女'
-    elif f1>=50 and f2<50 and f3>=50 and f4>=50 and f5>=50:
-        return '我'
-    elif f1>=50 and f2<50 and f3<50 and f4>=50 and f5>=50:
-        return '命令'
-    elif f1>=50 and f2>=50 and f3<50 and f4<50 and f5<50:
-        return 'ok'
-    elif f1<50 and f2>=50 and f3<50 and f4<50 and f5<50:
-        return 'ok'
-    elif f1>=50 and f2<50 and f3<50 and f4<50 and f5>50:
-        return '川'
-    elif f1>=50 and f2<50 and f3<50 and f4<50 and f5<50:
-        return '是'
-    elif f1<50 and f2<50 and f3<50 and f4<50 and f5<50:
-        return '有'
-    elif f1<50 and f2>=50 and f3>=50 and f4>=50 and f5<50:
-        return '怎麼會'
-    elif f1<50 and f2<50 and f3>=50 and f4>=50 and f5>=50:
-        return '刷牙'
-    elif f1<50 and f2<50 and f3<50 and f4>=50 and f5>=50:
-        return '懶惰'
-    elif f1<50 and f2<50 and f3<50 and f4<50 and f5>=50:
-        return '八'
-    else:
-        return ''
+    for sign in signs_db:
+        # 檢查單手或雙手條件
+        if sign['is_double_hand'] == 1 and not finger_angle_other:
+            continue  # 需要雙手但未提供第二隻手角度，跳過
+        if sign['is_double_hand'] == 0 and finger_angle_other:
+            continue  # 單手詞彙但提供了第二隻手角度，跳過
 
-# 使用PIL繪製中文字符
+        # 檢查角度條件
+        if (sign['f1_min'] <= f1 <= sign['f1_max'] and
+            sign['f2_min'] <= f2 <= sign['f2_max'] and
+            sign['f3_min'] <= f3 <= sign['f3_max'] and
+            sign['f4_min'] <= f4 <= sign['f4_max'] and
+            sign['f5_min'] <= f5 <= sign['f5_max']):
+            if sign['is_double_hand'] == 0:
+                return sign['sign_name']
+            elif (sign['fo1_min'] <= fo1 <= sign['fo1_max'] and
+                  sign['fo2_min'] <= fo2 <= sign['fo2_max'] and
+                  sign['fo3_min'] <= fo3 <= sign['fo3_max'] and
+                  sign['fo4_min'] <= fo4 <= sign['fo4_max'] and
+                  sign['fo5_min'] <= fo5 <= sign['fo5_max']):
+                return sign['sign_name']
+    return ''
+
+# 使用 PIL 繪製中文字符
 def draw_chinese_text(img, text, position, font_path='simsun.ttc', font_size=50, color=(255, 255, 255)):
     font = ImageFont.truetype(font_path, font_size)
     img_pil = Image.fromarray(img)
@@ -161,13 +201,17 @@ def draw_sign_prompt(img, sign_list, current_index, font_path='simsun.ttc', font
 sign_list = []
 if len(sys.argv) > 1:
     try:
-        sign_list = json.loads(sys.argv[1])  # 嘗試解析 JSON 格式
+        sign_list = json.loads(sys.argv[1])
     except json.JSONDecodeError:
-        sign_list = sys.argv[1].split(",")  # 備用方案：以逗號分隔
+        sign_list = sys.argv[1].split(",")
 
 # 如果沒有傳入詞彙，設置默認值
 if not sign_list:
     sign_list = ["我", "讀書"]
+
+# 初始化資料庫並載入詞彙
+conn = init_database()
+signs_db = load_signs_from_db(conn)
 
 cap = cv2.VideoCapture(0)
 
@@ -214,9 +258,9 @@ with mp_hands.Hands(
                             print(f"手 {idx + 1} 的手指角度: {finger_angle}")
 
                     if len(hand_angles) == 1:
-                        text = hand_pos(hand_angles[0])
+                        text = hand_pos(signs_db, hand_angles[0])
                     elif len(hand_angles) == 2:
-                        text = hand_pos(hand_angles[0], hand_angles[1])
+                        text = hand_pos(signs_db, hand_angles[0], hand_angles[1])
                     else:
                         text = ''
 
@@ -225,7 +269,6 @@ with mp_hands.Hands(
                         # 檢查是否匹配當前詞彙
                         if current_sign_index < len(sign_list) and text == sign_list[current_sign_index]:
                             current_sign_index += 1  # 匹配成功，進入下一個詞彙
-                            # 如果所有詞彙都完成，記錄完成時間
                             if current_sign_index >= len(sign_list):
                                 completed = True
                                 completion_time = current_time
@@ -251,3 +294,4 @@ with mp_hands.Hands(
 
 cap.release()
 cv2.destroyAllWindows()
+conn.close()
